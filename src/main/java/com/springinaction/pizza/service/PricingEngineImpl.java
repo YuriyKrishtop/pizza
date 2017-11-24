@@ -13,8 +13,7 @@ import com.springinaction.pizza.domain.PizzaSize;
 @SuppressWarnings("serial")
 public class PricingEngineImpl 
     implements PricingEngine, Serializable {
-  private static final Logger LOGGER = 
-      Logger.getLogger(PricingEngineImpl.class);
+  private static final Logger LOGGER = Logger.getLogger(PricingEngineImpl.class);
   
   private static Map<PizzaSize, Float> SIZE_PRICES;
   static {
@@ -36,8 +35,7 @@ public class PricingEngineImpl
     for (Pizza pizza : order.getPizzas()) {
       float pizzaPrice = SIZE_PRICES.get(pizza.getSize());
       if(pizza.getToppings().size() > 2) {
-        pizzaPrice += (pizza.getToppings().size() * 
-            PRICE_PER_TOPPING);
+        pizzaPrice += (pizza.getToppings().size() * PRICE_PER_TOPPING);
       }
       total += pizzaPrice;
     }

@@ -13,17 +13,14 @@
     </view-state>
     
     <action-state id="lookupCustomer">
-        <evaluate result="order.customer" expression=
-            "pizzaFlowActions.lookupCustomer(requestParameters.phoneNumber)" />
-        <transition to="registrationForm" on-exception=
-            "com.springinaction.pizza.service.CustomerNotFoundException" />
+        <evaluate result="order.customer" expression="pizzaFlowActions.lookupCustomer(requestParameters.phoneNumber)" />
+        <transition to="registrationForm" on-exception="com.springinaction.pizza.service.CustomerNotFoundException" />
         <transition to="customerReady" />
     </action-state>
     
     <view-state id="registrationForm" model="order" popup="true" >
         <on-entry>
-          <evaluate expression=
-              "order.customer.phoneNumber = requestParameters.phoneNumber" />
+          <evaluate expression="order.customer.phoneNumber = requestParameters.phoneNumber" />
         </on-entry>
         <transition on="submit" to="checkDeliveryArea" />
         <transition on="cancel" to="cancel" />

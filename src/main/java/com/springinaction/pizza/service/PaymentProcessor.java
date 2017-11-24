@@ -15,7 +15,7 @@ public class PaymentProcessor {
 
    public void approveCreditCard(String creditCardNumber, String expMonth,
                      String expYear, float amount) throws PaymentException {
-      if (amount > 20.00) {
+      if (amount > 120.00) {
          throw new PaymentException();
       }
    }
